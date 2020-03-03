@@ -37,6 +37,7 @@ function populateNav(array) {
     navbarUl.innerHTML += `<li><a onclick='scrollToAnchor(${link})' class='menu__link ${link}'  >${link}</a></li>`;
   }
 }
+//calling the function to populate the navbar from the start
 populateNav(links);
 
 // Scroll to anchor ID using scrollTO event
@@ -55,7 +56,6 @@ function scrollToAnchor(link) {
   });
 }
 
-//
 // function that determines if a section is in viewport or not, while scrolling
 window.onscroll = () => {
   for (link of links) {
@@ -63,8 +63,8 @@ window.onscroll = () => {
     let elementPosition = element.getBoundingClientRect().top;
     console.log(elementPosition);
     let heightElement = element.offsetHeight;
-    // making the item active as it remains in our viewport
-    // the 200 value makes sure we don't have 2 sections active at the same time
+    /* making the item active as it remains in our viewport
+    the 200 value makes sure we don't have 2 sections active at the same time */
     if (elementPosition >= -heightElement + 200 && elementPosition < 200) {
       this.makeActive(link);
       this.makeLinkActive(link);

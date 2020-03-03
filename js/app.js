@@ -60,12 +60,11 @@ function scrollToAnchor(link) {
 window.onscroll = () => {
   for (link of links) {
     let element = document.getElementById(`${link}`);
-    console.log(element);
     let elementPosition = element.getBoundingClientRect().top;
     console.log(elementPosition);
     let heightElement = element.offsetHeight;
-    //if a section is in view it's top Oy value will always be greater than 0
-    // and it should extend no longet than the element's height
+    // making the item active as it remains in our viewport
+    // the 200 value makes sure we don't have 2 sections active at the same time
     if (elementPosition >= -heightElement + 200 && elementPosition < 200) {
       this.makeActive(link);
       this.makeLinkActive(link);
